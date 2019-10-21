@@ -1,0 +1,32 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m328pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\Debug\Aufgabe1_Lauflicht_in_Assembler.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Aufgabe1_Lauflicht_in_Assembler.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Aufgabe1_Lauflicht_in_Assembler.map</FILE>
+  <FILE>Aufgabe1_Lauflicht_in_Assembler.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <START><FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm</FILE><LINE>19</LINE></START>
+  <main><FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm</FILE><LINE>30</LINE></main>
+  <delay><FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm</FILE><LINE>48</LINE></delay>
+  <loop0><FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm</FILE><LINE>51</LINE></loop0>
+  <loop1><FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm</FILE><LINE>57</LINE></loop1>
+  <loop2><FILE>C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm</FILE><LINE>63</LINE></loop2>
+ </LABELS>
+</ASSEMBLER_INFO>
