@@ -5,9 +5,9 @@
 void led_off(int led);
 void led_on (int led);
 
-int main (void)
+int main (void) //20min
 {
-	DDRD |= (1 << PD3 | 1 << PD4 | 1 << PD5);
+	DDRD |= (1 << PD5) | (1 << PD6) | (1 << PD7);
 	
 	while(1)
 	{
@@ -40,9 +40,9 @@ void led_on (int led)
 	
 	//PORTD ^= (1 << PD(led));
 	
-	if(led == 0){PORTD = (1 << PD3);}
-	else if(led == 1){PORTD = (1 << PD4);}
-	else if(led == 2){PORTD = (1 << PD5);}
+	if(led == 0){PORTD = (1 << PD5);}
+	else if(led == 1){PORTD = (1 << PD6);}
+	else if(led == 2){PORTD = (1 << PD7);}
 }
 
 void led_off(int led)
@@ -51,8 +51,8 @@ void led_off(int led)
 	
 	//PORTD ^= (0 << PD(led));
 	
-	if(led == 2){PORTD = (0 << PD5);}
-	else if(led == 1){PORTD = (0 << PD4);}
-	else if(led == 0){PORTD = (0 << PD3);}
+	if(led == 2){PORTD = (0 << PD7);}
+	else if(led == 1){PORTD = (0 << PD6);}
+	else if(led == 0){PORTD = (0 << PD5);}
 }
 

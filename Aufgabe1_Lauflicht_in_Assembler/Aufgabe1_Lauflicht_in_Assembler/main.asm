@@ -23,39 +23,40 @@ start: ;10min
 	ldi r16, low(RAMEND) 
 	out SPL,r16; Unteres Byte des Stackpointer setzen 
 
-	ldi r16,0b00011100
+	//ldi r16,0b00011100
+	ldi r16,0b11100000
 	out DDRD, r16
 	
 
 main: ;20 min 
 
-	sbi PortD, 3; SBI kann direkt an der stelle den Port setzen 
-	rcall delay
-	cbi PortD, 3
-	sbi PortD, 4
-	rcall delay
-	cbi PortD, 4
-	sbi PortD, 5
+	sbi PortD, 5; SBI kann direkt an der stelle den Port setzen 
 	rcall delay
 	cbi PortD, 5
-	sbi PortD, 4
+	sbi PortD, 6
 	rcall delay
-	cbi PortD, 4
+	cbi PortD, 6
+	sbi PortD, 7
+	rcall delay
+	cbi PortD, 7
+	sbi PortD, 6
+	rcall delay
+	cbi PortD, 6
 
 	rjmp main
 
 
 delay: ;30min 
 
-	ldi r17, 16
+	ldi r17, 17
 loop0:
-	ldi r18, 255
+	ldi r18, 252
 	rcall loop1
 	dec r17
 	brne loop0
 	ret
 loop1:
-	ldi r19, 255
+	ldi r19, 250
 	rcall loop2
 	dec r18
 	brne loop1

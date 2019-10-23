@@ -21,11 +21,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_frame  00000044  00000000  00000000  000013e8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000039b  00000000  00000000  0000142c  2**0
+  9 .debug_str    000003a0  00000000  00000000  0000142c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000012e  00000000  00000000  000017c7  2**0
+ 10 .debug_loc    0000012e  00000000  00000000  000017cc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000020  00000000  00000000  000018f5  2**0
+ 11 .debug_ranges 00000020  00000000  00000000  000018fa  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -77,23 +77,23 @@ Disassembly of section .text:
 	
 	//PORTD ^= (1 << PD(led));
 	
-	if(led == 0){PORTD = (1 << PD3);}
+	if(led == 0){PORTD = (1 << PD5);}
   80:	00 97       	sbiw	r24, 0x00	; 0
   82:	19 f4       	brne	.+6      	; 0x8a <led_on+0xa>
-  84:	88 e0       	ldi	r24, 0x08	; 8
+  84:	80 e2       	ldi	r24, 0x20	; 32
   86:	8b b9       	out	0x0b, r24	; 11
   88:	08 95       	ret
-	else if(led == 1){PORTD = (1 << PD4);}
+	else if(led == 1){PORTD = (1 << PD6);}
   8a:	81 30       	cpi	r24, 0x01	; 1
   8c:	91 05       	cpc	r25, r1
   8e:	19 f4       	brne	.+6      	; 0x96 <led_on+0x16>
-  90:	80 e1       	ldi	r24, 0x10	; 16
+  90:	80 e4       	ldi	r24, 0x40	; 64
   92:	8b b9       	out	0x0b, r24	; 11
   94:	08 95       	ret
-	else if(led == 2){PORTD = (1 << PD5);}
+	else if(led == 2){PORTD = (1 << PD7);}
   96:	02 97       	sbiw	r24, 0x02	; 2
   98:	11 f4       	brne	.+4      	; 0x9e <led_on+0x1e>
-  9a:	80 e2       	ldi	r24, 0x20	; 32
+  9a:	80 e8       	ldi	r24, 0x80	; 128
   9c:	8b b9       	out	0x0b, r24	; 11
   9e:	08 95       	ret
 
@@ -103,19 +103,19 @@ Disassembly of section .text:
 	
 	//PORTD ^= (0 << PD(led));
 	
-	if(led == 2){PORTD = (0 << PD5);}
+	if(led == 2){PORTD = (0 << PD7);}
   a0:	82 30       	cpi	r24, 0x02	; 2
   a2:	91 05       	cpc	r25, r1
   a4:	11 f4       	brne	.+4      	; 0xaa <led_off+0xa>
   a6:	1b b8       	out	0x0b, r1	; 11
   a8:	08 95       	ret
-	else if(led == 1){PORTD = (0 << PD4);}
+	else if(led == 1){PORTD = (0 << PD6);}
   aa:	81 30       	cpi	r24, 0x01	; 1
   ac:	91 05       	cpc	r25, r1
   ae:	11 f4       	brne	.+4      	; 0xb4 <led_off+0x14>
   b0:	1b b8       	out	0x0b, r1	; 11
   b2:	08 95       	ret
-	else if(led == 0){PORTD = (0 << PD3);}
+	else if(led == 0){PORTD = (0 << PD5);}
   b4:	89 2b       	or	r24, r25
   b6:	09 f4       	brne	.+2      	; 0xba <led_off+0x1a>
   b8:	1b b8       	out	0x0b, r1	; 11
@@ -125,11 +125,11 @@ Disassembly of section .text:
 void led_off(int led);
 void led_on (int led);
 
-int main (void)
+int main (void) //20min
 {
-	DDRD |= (1 << PD3 | 1 << PD4 | 1 << PD5);
+	DDRD |= (1 << PD5) | (1 << PD6) | (1 << PD7);
   bc:	8a b1       	in	r24, 0x0a	; 10
-  be:	88 63       	ori	r24, 0x38	; 56
+  be:	80 6e       	ori	r24, 0xE0	; 224
   c0:	8a b9       	out	0x0a, r24	; 10
 	{
 		//PORTB ^= (1 << PB0);

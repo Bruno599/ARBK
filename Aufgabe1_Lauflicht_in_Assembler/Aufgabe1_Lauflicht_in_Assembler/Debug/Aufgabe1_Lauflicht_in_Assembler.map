@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm Mon Oct 21 19:21:44 2019
+AVRASM ver. 2.2.7  C:\Users\bruno\Documents\Atmel Studio\7.0\ARBK\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm Tue Oct 22 14:36:26 2019
 
 
 EQU  SIGNATURE_000 0000001e

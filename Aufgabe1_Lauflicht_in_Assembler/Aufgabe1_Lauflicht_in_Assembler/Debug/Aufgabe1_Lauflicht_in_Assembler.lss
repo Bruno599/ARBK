@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.7  C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm Mon Oct 21 19:21:44 2019
+AVRASM ver. 2.2.7  C:\Users\bruno\Documents\Atmel Studio\7.0\ARBK\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm Tue Oct 22 14:36:26 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m328pdef.inc'
-C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m328pdef.inc'
+C:\Users\bruno\Documents\Atmel Studio\7.0\ARBK\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m328pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m328pdef.inc'
-C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m328pdef.inc'
+C:\Users\bruno\Documents\Atmel Studio\7.0\ARBK\Aufgabe1_Lauflicht_in_Assembler\Aufgabe1_Lauflicht_in_Assembler\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m328pdef.inc'
                                  
                                  ;
                                  
@@ -1054,39 +1054,40 @@ C:\Users\bruno\Documents\Atmel Studio\7.0\Aufgabe1_Lauflicht_in_Assembler\Aufgab
 000036 ef0f                      	ldi r16, low(RAMEND) 
 000037 bf0d                      	out SPL,r16; Unteres Byte des Stackpointer setzen 
                                  
-000038 e10c                      	ldi r16,0b00011100
+                                 	//ldi r16,0b00011100
+000038 ee00                      	ldi r16,0b11100000
 000039 b90a                      	out DDRD, r16
                                  	
                                  
                                  main: ;20 min 
                                  
-00003a 9a5b                      	sbi PortD, 3; SBI kann direkt an der stelle den Port setzen 
+00003a 9a5d                      	sbi PortD, 5; SBI kann direkt an der stelle den Port setzen 
 00003b d00b                      	rcall delay
-00003c 985b                      	cbi PortD, 3
-00003d 9a5c                      	sbi PortD, 4
+00003c 985d                      	cbi PortD, 5
+00003d 9a5e                      	sbi PortD, 6
 00003e d008                      	rcall delay
-00003f 985c                      	cbi PortD, 4
-000040 9a5d                      	sbi PortD, 5
+00003f 985e                      	cbi PortD, 6
+000040 9a5f                      	sbi PortD, 7
 000041 d005                      	rcall delay
-000042 985d                      	cbi PortD, 5
-000043 9a5c                      	sbi PortD, 4
+000042 985f                      	cbi PortD, 7
+000043 9a5e                      	sbi PortD, 6
 000044 d002                      	rcall delay
-000045 985c                      	cbi PortD, 4
+000045 985e                      	cbi PortD, 6
                                  
 000046 cff3                      	rjmp main
                                  
                                  
                                  delay: ;30min 
                                  
-000047 e110                      	ldi r17, 16
+000047 e111                      	ldi r17, 17
                                  loop0:
-000048 ef2f                      	ldi r18, 255
+000048 ef2c                      	ldi r18, 252
 000049 d003                      	rcall loop1
 00004a 951a                      	dec r17
 00004b f7e1                      	brne loop0
 00004c 9508                      	ret
                                  loop1:
-00004d ef3f                      	ldi r19, 255
+00004d ef3a                      	ldi r19, 250
 00004e d003                      	rcall loop2
 00004f 952a                      	dec r18
 000050 f7e1                      	brne loop1
