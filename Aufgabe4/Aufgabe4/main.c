@@ -31,7 +31,7 @@ int main(void)
 
 	  while(1)
 	  {
-		waitUntil(5000);
+		waitUntil(5000+millisekunden);
 		
 		PORTD = (1 << PD4);
 		
@@ -39,7 +39,7 @@ int main(void)
 		
 		PORTD = (0 << PD4);
 		
-		waitUntil(5000);
+		waitUntil(5000+millisekunden);
 	  }
 }
 
