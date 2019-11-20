@@ -7,7 +7,7 @@
 
 #include <avr/io.h>
 
-#define F_CPU 10000000UL
+#define F_CPU 1000000UL
 
 #include	<util/delay.h>
 
@@ -25,8 +25,8 @@
 
  */ 
 
-int led_1 = 0;
-int led_2 = 0;
+int led_red = 0;
+int led_yellow = 0;
 
 void init()
 {
@@ -35,24 +35,48 @@ void init()
 	DDRB |= (1<< PB0) | (1 << PB1);
 }
 
-
-
-int polling()
-
+void RedPressed()
 {
-	 //(PIND2 == 1 && PIND3 == 1)
+	if (led_red == 1)
+	{
+		led_red = 0;
+	}
+	else 
+	{
+		led_red = 1;
+	}
+	led_yellow = 0;
 	
+}
+
+void YellowPressed()
+{
+	if (led_yellow == 1)
+	{
+		led_yellow = 0;
+	}
+	else
+	{
+		led_yellow = 1;
+	}
+	led_red = 0;
+	
+}
+
+
+
+void polling()
+{
 		if (~PIND & (1 << PD2))
 		{
-			return 1;
+			RedPressed();
 		}
 
 		if (~PIND & (1 << PD3))
 		{
-			return 2;
+			YellowPressed();
 		}
 		
-		return 0;
 }
 
 
@@ -63,64 +87,24 @@ int main(void)
 	init();
     while (1) 
     {
-		int test = 0;
+	
+		polling();
 		
-		test = polling();
-		
-		if (test == 1 )
-		{
-			if(led_2 == 1)
-			{
-				led_1 = 1;
-				//PORTB |= (1 << PB0);
-				led_2 = 0;
-				//PORTB &= (0 << PB1);
-			}
-			else if(led_2 == 0)
-			{
-				led_1 = 1;
-				//PORTB &= (0 << PB0);
-			}
-			else if(led_1 == 1)
-			{
-				led_1 = 0;
-			}
-			
-		}
-		else if (test == 2)
-		{
-			if(led_1 == 1)
-			{
-				led_2 = 1;
-				//PORTB |= (1 << PB1);
-				led_1 = 0;
-				//PORTB &= (0 << PB0);
-			}
-			else if(led_1 == 0 && led_2 == 0)
-			{
-				led_2 = 1;
-				//PORTB &= (0 << PB1);
-			}
-			else if(led_2 == 1)
-			{
-				led_2 == 0;
-			}
-		}
-
-		if (led_1 == 1)
+		if (led_red == 1)
 		{
 			PORTB = (1 << PB0);
-			_delay_ms(100);
+			_delay_ms(200);
 			PORTB = (0 << PB0);
-			_delay_ms(100);
+			
 		}
 
-		if (led_2 == 1)
+		if (led_yellow == 1)
 		{
 			PORTB = (1 << PB1);
-			_delay_ms(100);
+			_delay_ms(200);
 			PORTB = (0 << PB1);
-			_delay_ms(100);
+			
 		}
+		_delay_ms(200);
     }
 }
